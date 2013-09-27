@@ -1,5 +1,8 @@
 class CardsController < ApplicationController
   def create
+    params.permit(:card, :title, :description, :deck_id)
+                             
+                             
     @deck = Deck.find(params[:deck_id])
     @card = @deck.cards.build(params[:card])
     @card.save

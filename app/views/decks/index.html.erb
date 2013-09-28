@@ -1,27 +1,14 @@
-<div class="jumbotron">
-<h1>Card Decks</h1>
-
-<table class="bordered-table zebra-striped btn-group">
-        <thead>
-        </thead>
-        <tbody>
-	      <% @decks.each do |deck| %>	
-          <tr>
-            <td colspan="2">
-			  <td><h2><%= link_to deck.name, deck %></h2></td>
-  	        </td>
-			<td colspan="3"></td>
-            <td colspan="2" class="btn-group">
-			    <td><%= link_to 'Edit', edit_deck_path(deck), :class => "btn btn-default" %></td>
-		        <td><%= link_to 'Delete', deck, method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-default" %></td>
-  			</td>
-          </tr>
-	      <% end %>
-        </tbody>
-      </table>
-</table>
-
+<section class="card center">
+    <h1 class="card-header center">Available Decks</h1>
+    <% @decks.each do |deck| %> 
+      <h4 class="card-row">
+          <%= link_to deck.name, deck %> 
+          <%= link_to 'Edit', edit_deck_path(deck), :class => "btn btn-mini pull-right" %>
+          <%= link_to 'Delete', deck, method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-mini pull-right" %>
+    </h4>
+  <% end %>
+</section>
 <br>
-<hr>
-<%= link_to 'New Deck', new_deck_path, :class => "btn btn-primary" %>
-</div>
+<footer>
+      <%= link_to 'New Deck', new_deck_path, :class => "btn btn-large btn-primary width-card" %>
+</footer>

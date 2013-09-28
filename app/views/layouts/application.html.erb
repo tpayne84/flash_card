@@ -11,6 +11,9 @@
 <%= render "shared/nav" %>
 <div style="width:80%;" class="container center drop-50">
 <%= yield %>
+<br>
+<hr>
+<br>
 <%= debug(params) if Rails.env.development? %>
 <%= render "shared/jsinclude" %>
 </div>

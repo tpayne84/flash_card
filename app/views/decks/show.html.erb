@@ -7,10 +7,11 @@
 	<%= link_to "Delete Card", [@deck, card], :method => :delete, :confirm => "Are your sure?" %>
 <% end %>
 <br />
+<hr>
 <%= link_to 'Edit', edit_deck_path(@deck) %> | 
 <%= link_to 'Back', decks_path %> | 
 <%= link_to 'Delete', @deck, :method => :delete, :confirm => "Are you sure?" %>
-
+<hr	>
 <%= form_for [@deck, @deck.cards.build] do |f| %>
 	<%= f.label :title, "Word:" %>
 	<%= f.text_field :title  %>

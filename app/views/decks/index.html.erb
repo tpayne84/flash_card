@@ -1,14 +1,15 @@
-<section class="card center">
+<section class="card shadow center">
     <h1 class="card-header center">Available Decks</h1>
     <% @decks.each do |deck| %> 
       <h4 class="card-row">
           <%= link_to deck.name, deck %> 
-          <%= link_to 'Edit', edit_deck_path(deck), :class => "btn btn-mini pull-right" %>
           <%= link_to 'Delete', deck, method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-mini pull-right" %>
+            <%= link_to 'Edit', edit_deck_path(deck), :class => "btn btn-mini pull-right" %>
+
     </h4>
   <% end %>
 </section>
 <br>
-<footer>
+<footer class="handwritten">
       <%= link_to 'New Deck', new_deck_path, :class => "btn btn-large btn-primary width-card" %>
 </footer>

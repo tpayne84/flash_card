@@ -1,29 +1,43 @@
-<div class="jumbotron">
-  <div class="container">
-	<h1> <%= @deck.name %></h1>
-	<div class="btn-group">
-		<%= link_to 'Back', decks_path, :class => "btn btn-default" %>
-		<%= link_to 'Edit', edit_deck_path(@deck), :class => "btn btn-default"%>
-		<%= link_to 'Delete', @deck, :method => :delete, :confirm => "Are you sure?", :class => "btn btn-default" %>
-	</div>
-	<hr>
-	<h2>Study Cards</h2>
+<header>
+	<h1 class="center handwritten"> <%= @deck.name %> </h1>
+	    <div class="btn-group">
+			<%= link_to 'Back', decks_path, :class => "btn btn-primary btn-large" %>
+			<%= link_to 'Edit', edit_deck_path(@deck), :class => "btn btn-large"%>
+			<%= link_to 'Delete', @deck, :method => :delete, :confirm => "Are you sure?", :class => "btn btn-large" %>
+		</div>
 	<p id="notice"><%= notice %></p>
-
-	<% @deck.cards.each do |card| %>
-		<p><strong><%= card.title %></strong> : <%= card.description %></p>
-		<%= link_to "Delete Card", [@deck, card], :method => :delete, :confirm => "Are your sure?", :class => "btn btn-default"  %>
-	<% end %>
-	<br />
-	<hr>
-	<h2>Add Cards</h2>
-	<%= form_for [@deck, @deck.cards.build] do |f| %>
+</header>
+<hr>
+<section>
+	<h2 class="handwritten">Add Card</h2>
+	<%= form_for [@deck, @deck.cards.build], :html => {:class => 'form-inline'} do |f| %>
 		<%= f.label :title, "Word:" %>
 		<%= f.text_field :title  %>
 		<%= f.label :description, "Description:" %>
 		<%= f.text_field :description %>
-		<%= f.submit "Add Card" %>
+		<%= f.submit "Add Card", :class => "btn btn-primary" %>
 	<% end %>
+</section>
 
-  </div>
-</div>
+<br>
+
+<% @deck.cards.each do |card| %>
+	<article class="card shadow center">
+	    <h1 class="card-header center"> <%= card.title %> </h1>
+		<p class="card-row">
+			<%= card.description %>
+		</p>
+		<div class="pull-right push-5">
+			<%= link_to "Delete Card", [@deck, card], :method => :delete, :confirm => "Are your sure?", :class => "btn btn-default"  %>
+		</div>
+	</article>
+	<br>
+	<hr>
+	<br>
+<% end %>
+
+<br>
+
+<footer>
+      <%= link_to 'Back', decks_path, :class => "btn btn-primary btn-large width-card" %>
+</footer>

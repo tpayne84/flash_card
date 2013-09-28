@@ -1,21 +1,27 @@
-<h1> <%= @deck.name %></h1>
-<%= link_to 'Edit', edit_deck_path(@deck) %> | 
-<%= link_to 'Back', decks_path %> | 
-<%= link_to 'Delete', @deck, :method => :delete, :confirm => "Are you sure?" %>
-<hr>
-<h2>Flash Cards</h2>
-<p id="notice"><%= notice %></p>
+<div class="jumbotron">
+  <div class="container">
+	<h1> <%= @deck.name %></h1>
+	<%= link_to 'Edit', edit_deck_path(@deck) %> | 
+	<%= link_to 'Back', decks_path %> | 
+	<%= link_to 'Delete', @deck, :method => :delete, :confirm => "Are you sure?" %>
+	<hr>
+	<h2>Study Cards</h2>
+	<p id="notice"><%= notice %></p>
 
-<% @deck.cards.each do |card| %>
-	<p><strong><%= card.title %></strong> : <%= card.description %></p>
-	<%= link_to "Delete Card", [@deck, card], :method => :delete, :confirm => "Are your sure?" %>
-<% end %>
-<br />
-<hr>
-<%= form_for [@deck, @deck.cards.build] do |f| %>
-	<%= f.label :title, "Word:" %>
-	<%= f.text_field :title  %>
-	<%= f.label :description, "Description:" %>
-	<%= f.text_field :description %>
-	<%= f.submit "Add Card" %>
-<% end %>
+	<% @deck.cards.each do |card| %>
+		<p><strong><%= card.title %></strong> : <%= card.description %></p>
+		<%= link_to "Delete Card", [@deck, card], :method => :delete, :confirm => "Are your sure?" %>
+	<% end %>
+	<br />
+	<hr>
+	<h2>Add Cards</h2>
+	<%= form_for [@deck, @deck.cards.build] do |f| %>
+		<%= f.label :title, "Word:" %>
+		<%= f.text_field :title  %>
+		<%= f.label :description, "Description:" %>
+		<%= f.text_field :description %>
+		<%= f.submit "Add Card" %>
+	<% end %>
+
+  </div>
+</div>

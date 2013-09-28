@@ -1,14 +1,27 @@
-<h1>Card Decks</h1>
+<div class="jumbotron">
+<h2>Card Decks</h2>
 
-<table>
-    <% @decks.each do |deck| %>
-      <tr>
-        <td><strong><%= link_to deck.name, deck %></strong></td>
-        <td> - <%= link_to 'Edit', edit_deck_path(deck) %> | </td>
-        <td><%= link_to 'Destroy', deck, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
+<table class="bordered-table zebra-striped center">
+        <thead>
+        </thead>
+        <tbody>
+	      <% @decks.each do |deck| %>	
+          <tr>
+            <td colspan="2">
+			  <td><h3><%= link_to deck.name, deck %></h3></td>
+  	        </td>
+			<td colspan="3"></td>
+            <td colspan="2" class="btn-group">
+			    <td><%= link_to 'Edit', edit_deck_path(deck), :class => "btn btn-default" %></td>
+		        <td><%= link_to 'Destroy', deck, method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-default" %></td>
+  			</td>
+          </tr>
+	      <% end %>
+        </tbody>
+      </table>
 </table>
+
 <br>
 <hr>
-<%= link_to 'New Deck', new_deck_path %>
+<%= link_to 'New Deck', new_deck_path, :class => "btn btn-default" %>
+</div>

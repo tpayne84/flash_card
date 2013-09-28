@@ -1,17 +1,17 @@
 <h1> <%= @deck.name %></h1>
-
+<%= link_to 'Edit', edit_deck_path(@deck) %> | 
+<%= link_to 'Back', decks_path %> | 
+<%= link_to 'Delete', @deck, :method => :delete, :confirm => "Are you sure?" %>
+<hr>
+<h2>Flash Cards</h2>
 <p id="notice"><%= notice %></p>
 
 <% @deck.cards.each do |card| %>
-	<p><%= card.title %> : <%= card.description %></p>
+	<p><strong><%= card.title %></strong> : <%= card.description %></p>
 	<%= link_to "Delete Card", [@deck, card], :method => :delete, :confirm => "Are your sure?" %>
 <% end %>
 <br />
 <hr>
-<%= link_to 'Edit', edit_deck_path(@deck) %> | 
-<%= link_to 'Back', decks_path %> | 
-<%= link_to 'Delete', @deck, :method => :delete, :confirm => "Are you sure?" %>
-<hr	>
 <%= form_for [@deck, @deck.cards.build] do |f| %>
 	<%= f.label :title, "Word:" %>
 	<%= f.text_field :title  %>

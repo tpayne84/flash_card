@@ -1,16 +1,18 @@
 <div class="jumbotron">
   <div class="container">
 	<h1> <%= @deck.name %></h1>
-	<%= link_to 'Edit', edit_deck_path(@deck) %> | 
-	<%= link_to 'Back', decks_path %> | 
-	<%= link_to 'Delete', @deck, :method => :delete, :confirm => "Are you sure?" %>
+	<div class="btn-group">
+		<%= link_to 'Back', decks_path, :class => "btn btn-default" %>
+		<%= link_to 'Edit', edit_deck_path(@deck), :class => "btn btn-default"%>
+		<%= link_to 'Delete', @deck, :method => :delete, :confirm => "Are you sure?", :class => "btn btn-default" %>
+	</div>
 	<hr>
 	<h2>Study Cards</h2>
 	<p id="notice"><%= notice %></p>
 
 	<% @deck.cards.each do |card| %>
 		<p><strong><%= card.title %></strong> : <%= card.description %></p>
-		<%= link_to "Delete Card", [@deck, card], :method => :delete, :confirm => "Are your sure?" %>
+		<%= link_to "Delete Card", [@deck, card], :method => :delete, :confirm => "Are your sure?", :class => "btn btn-default"  %>
 	<% end %>
 	<br />
 	<hr>

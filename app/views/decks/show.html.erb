@@ -22,18 +22,20 @@
 <br>
 
 <% @deck.cards.each do |card| %>
-	<article class="card shadow center">
-	    <h1 class="card-header center"> <%= card.title %> </h1>
-		<p class="card-row">
-			<%= card.description %>
-		</p>
-		<div class="pull-right push-5">
-			<%= link_to "Delete Card", [@deck, card], :method => :delete, :confirm => "Are your sure?", :class => "btn btn-default"  %>
-		</div>
-	</article>
-	<br>
-	<hr>
-	<br>
+	<% unless card.title == nil	 %>
+		<article class="card shadow center">
+		    <h1 class="card-header center"> <%= card.title %> </h1>
+			<p class="card-row">
+				<%= card.description %>
+			</p>
+			<div class="pull-right push-5">
+				<%= link_to "Delete Card", [@deck, card], :method => :delete, :confirm => "Are your sure?", :class => "btn btn-default"  %>
+			</div>
+		</article>
+		<br>
+		<hr>
+		<br>
+	<% end %>	
 <% end %>
 
 <br>

@@ -6,9 +6,9 @@
 	<p><%= card.title %> : <%= card.description %></p>
 	<%= link_to "Delete Card", [@deck, card], :method => :delete, :confirm => "Are your sure?" %>
 <% end %>
-
-<%= link_to 'Edit', edit_deck_path(@deck) %> |
-<%= link_to 'Back', decks_path %>
+<br />
+<%= link_to 'Edit', edit_deck_path(@deck) %> | 
+<%= link_to 'Back', decks_path %> | 
 <%= link_to 'Delete', @deck, :method => :delete, :confirm => "Are you sure?" %>
 
 <%= form_for [@deck, @deck.cards.build] do |f| %>

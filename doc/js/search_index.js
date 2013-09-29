@@ -1,0 +1,1 @@
+var search_data = {"index":{"searchIndex":["readme"],"longSearchIndex":[""],"info":[["README","","__/__/__/Downloads/Ruby_Binding_0_1/README_rdoc.html","","<p>0.1 release of Wolfram|Alpha Client for ruby\n<p>This is extreme alpha code!\n<p>gem is coming soon, as are features …\n"]]}}

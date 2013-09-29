@@ -11,12 +11,10 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :name, "Deck Name" %><br>
+  <div class="field handwritten form-control">
     <%= f.text_field :name %>
   </div>
-  <div class="actions">
-    <%= f.submit "Create Deck", :class => "btn btn-default" %>
-	<%= link_to 'Cancel', decks_path, :class => "btn btn-default" %>
+  <div class="actions pull-right">
+    <%= f.submit "Create Deck", :class => "btn btn-primary" %>
   </div>
 <% end %>

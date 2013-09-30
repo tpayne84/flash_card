@@ -66,12 +66,10 @@ background: url('bg.png');
 
 .card-row {
   padding: 5px;
-  border-bottom-width:1px;
-  border-bottom-style:solid;
-  border-bottom-color:blue;
+  text-align: left;
+  margin-left: 5%;
+  margin-right: 5%;
+  border-bottom: 1px solid blue;
 
-/* Format the text */
-text-align: left;
-margin-left: 5%;
-margin-right: 5%;
+
 }

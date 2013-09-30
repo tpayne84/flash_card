@@ -1,6 +1,26 @@
 class DecksController < ApplicationController
   before_action :set_deck, only: [:show, :edit, :update, :destroy]
 
+def format_description(card)
+    line_a = []
+    word_a = card.description.split(' ')
+    line = ''
+    last = word_a.size - 1
+    word_a.each_with_index do |word, i|
+      if line.length + word.length > 80
+        line_a.push(line)
+        line = ''
+      elsif i == last
+        line += ' ' + word
+        line_a.push(line)
+      else
+        line += ' ' + word
+      end
+    end
+    line_a
+  end
+  helper_method :format_description
+
   # GET /decks
   # GET /decks.json
   def index
@@ -10,6 +30,7 @@ class DecksController < ApplicationController
   # GET /decks/1
   # GET /decks/1.json
   def show
+    @deck
   end
 
   # GET /decks/new

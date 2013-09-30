@@ -24,10 +24,14 @@
 <% @deck.cards.each do |card| %>
 	<% unless card.title == nil	 %>
 		<article class="card shadow center">
-		    <h1 class="card-header center"> <%= card.title %> </h1>
-			<p class="card-row">
-				<%= card.description %>
-			</p>
+		    <h1 class="card-header center"> <%= card.title %></h1>
+			<% card_a = format_description(card) %>
+			
+			<% card_a.each do |line| %>
+				<p class="card-row">
+					<%= line %>
+				</p>
+			<% end %>
 			<div class="pull-right push-5">
 				<%= link_to "Delete Card", [@deck, card], :method => :delete, :confirm => "Are your sure?", :class => "btn btn-default"  %>
 			</div>

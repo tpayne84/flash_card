@@ -9,6 +9,9 @@ gem 'sqlite3'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'
 
+# Use wordnik as the word lookup
+gem 'wordnik'
+
 # Use figaro to store API Key
 gem 'figaro'
 

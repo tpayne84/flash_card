@@ -4,7 +4,7 @@ class CardsController < ApplicationController
     @card = @deck.cards.build(card_params)
     
     if @card.description.empty?
-      @card.description = get_wiki
+      @card.description = get_definition
     end
     @card.save
     redirect_to @deck
@@ -20,8 +20,8 @@ class CardsController < ApplicationController
     params.require(:card).permit(:title, :description, :deck_id)
   end
 
-  def get_wiki
-    "#TODO implement Wolrfram Aplha API"
+  def get_definition
+    Wordnik.word.get_definitions(params[:title])
   end
 
 end
